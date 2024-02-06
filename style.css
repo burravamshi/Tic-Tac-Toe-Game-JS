@@ -65,3 +65,8 @@ h1{
 .hide {
     display: none;
 }
+.highlight {
+    background-color: yellow; /* Choose a color that stands out */
+    color: black; /* Ensure text is readable */
+    font-weight: bold;
+}

@@ -42,6 +42,7 @@ const enableBoxes = ()=>{
     for (let box of boxes){
         box.disabled = false;
         box.innerText="";
+        box.classList.remove("highlight");
     }
 }
 const checkWinner = () => {
@@ -52,6 +53,7 @@ const checkWinner = () => {
         let pos3Val = boxes[pattern[2]].innerText;
         if (pos1Val !== "" && pos2Val !== "" && pos3Val !== "") {
             if (pos1Val === pos2Val && pos2Val === pos3Val) {
+                highlightWinningBoxes(pattern);
                 showWinner(pos1Val);
                 winnerFound = true;
                 break;
@@ -63,6 +65,12 @@ const checkWinner = () => {
         draw();
     }
 };
+const highlightWinningBoxes = (winningPattern) => {
+    winningPattern.forEach(index => {
+        boxes[index].classList.add("highlight"); // Assuming you have a .highlight class in your CSS
+    });
+};
+
 const resetGame = () =>{
     count=0;
     turnO = true;
